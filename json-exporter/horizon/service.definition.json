@@ -15,12 +15,14 @@
         "services": {
             "$SERVICE_NAME": {
                 "image": "${DOCKER_IMAGE_BASE}_$ARCH:$SERVICE_VERSION",
+		"privileged": true,
 		"ports": [
                     {
                         "HostPort": "7979:7979/tcp",
                         "HostIP": "0.0.0.0"
                     }
-                ]
+                ],
+       		 "network": "host"
             }
         }
     }
